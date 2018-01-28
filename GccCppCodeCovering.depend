@@ -1,0 +1,71 @@
+# depslib dependency file v1.0
+1517151461 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\main.cpp
+	<iostream>
+	<fstream>
+	"Project.h"
+	"WindowsOS.h"
+	"HTMLService.h"
+	<clocale>
+	<windows.h>
+
+1517130463 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\src\project.cpp
+	"Project.h"
+	<dirent.h>
+	"WindowsOS.h"
+	<iostream>
+	"HTMLService.h"
+
+1517124252 c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\include\project.h
+	"Global.h"
+	"Module.h"
+	<vector>
+
+1516516928 c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\include\global.h
+	<string>
+
+1516942388 c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\include\windowsos.h
+	"Global.h"
+	<vector>
+	<fstream>
+
+1517080593 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\src\windowsos.cpp
+	"WindowsOS.h"
+	"windows.h"
+	"dirent.h"
+	<iostream>
+	<stdio.h>
+
+1517125474 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\src\htmlservice.cpp
+	"HTMLService.h"
+
+1517125508 c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\include\htmlservice.h
+	<Global.h>
+
+1517151386 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\src\line.cpp
+	"Line.h"
+	"iostream"
+	<algorithm>
+
+1517151608 c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\include\line.h
+	"Global.h"
+	<vector>
+	"Module.h"
+
+1517130272 c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\include\module.h
+	"Global.h"
+	<vector>
+	"Line.h"
+
+1517149848 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\src\module.cpp
+	"Module.h"
+	<fstream>
+	<iostream>
+	"WindowsOS.h"
+	"HTMLService.h"
+
+1516519028 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\src\word.cpp
+	"Word.h"
+
+1516520076 c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\include\word.h
+	"Global.h"
+

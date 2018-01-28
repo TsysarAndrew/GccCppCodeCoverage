@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Unit-tests" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Unit-tests" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Unit-tests" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add directory="C:/wxWidgets-3.1.0/googletest/googletest/include" />
+			<Add directory="C:/Work/ООО Надежное ПО/Проект Запись видео/GccCppCodeCovering/include" />
+			<Add directory="C:/Work/ООО Надежное ПО/Проект Запись видео/GccCppCodeCovering/src" />
+		</Compiler>
+		<Linker>
+			<Add library="C:/wxWidgets-3.1.0/googletest/googletest/libgtest.a" />
+		</Linker>
+		<Unit filename="../include/Global.h" />
+		<Unit filename="../include/HTMLService.h" />
+		<Unit filename="../include/Line.h" />
+		<Unit filename="../include/Module.h" />
+		<Unit filename="../include/Project.h" />
+		<Unit filename="../include/WindowsOS.h" />
+		<Unit filename="../include/Word.h" />
+		<Unit filename="../src/HTMLService.cpp" />
+		<Unit filename="../src/Line.cpp" />
+		<Unit filename="../src/Module.cpp" />
+		<Unit filename="../src/Project.cpp" />
+		<Unit filename="../src/WindowsOS.cpp" />
+		<Unit filename="../src/Word.cpp" />
+		<Unit filename="GlobalUnitTest.h" />
+		<Unit filename="HTMLServiceTests.cpp" />
+		<Unit filename="LineTests.cpp" />
+		<Unit filename="ModuleTests.cpp" />
+		<Unit filename="ProjectTests.cpp" />
+		<Unit filename="WindowsOsTests.cpp" />
+		<Unit filename="WordTests.cpp" />
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
