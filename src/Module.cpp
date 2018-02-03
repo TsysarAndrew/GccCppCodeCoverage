@@ -3,12 +3,13 @@
 #include <iostream>
 #include "WindowsOS.h"
 #include "HTMLService.h"
+#include "windows.h"
+#include <exception>
 
 Module::Module()
 {
     SetCalledLinesCount(0);
     SetAnalysisLinesCount(0);
-    macroses = NULL;
 }
 
 Module::~Module()
@@ -28,33 +29,23 @@ Line Module::GetLine(int index)
 
 void Module::Proccess(std::string gcovFileName)
 {
+
     WindowsOS os;
-    if(!os.CheckFile(gcovFileName))
-    {
-        //std::cerr << "file" << gcovFileName << " not found" << std::endl;
-        return;
-    }
-    else
-    {
-        //std::cerr << "file" << gcovFileName << " found" << std::endl;
-    }
 
     std::string moduleName = os.ShortFileName(gcovFileName);
     moduleName = os.FileNameFromGcovFileName(moduleName);
     moduleName = os.ShortFileName(moduleName);
+
     SetModuleName(moduleName);
 
-    std::ifstream file(gcovFileName);
-    //std::cerr << "std::ifstream file(gcovFileName) - " << gcovFileName << std::endl;
-
+    std::ifstream file_;
+    file_.open(gcovFileName.c_str());
 
     std::string gcovFileLine;
-    while(std::getline(file, gcovFileLine))
+    while(std::getline(file_, gcovFileLine))
     {
-        //std::cerr << "getline - " << gcovFileLine << std::endl;
         Line line;
         line.SetModule(this);
-        line.SetMacroses(macroses);
         line.Proccess(gcovFileLine);
         lines.push_back(line);
     }
@@ -70,20 +61,21 @@ void Module::IncCalledLinesCount()
     SetCalledLinesCount(GetCalledLinesCount() + 1);
 }
 
-void Module::SetMacroses(std::vector<std::string>* macroses)
-{
-    this->macroses = macroses;
-}
-
  void Module::GenerateHTMLReport(std::string outputDir)
  {
+     if(GetLinesCount1() == 0)
+     {
+         return;
+     }
+
     HTMLService html;
 
-    html.StartHTMLFile().Paragraph("Статистика по модулю " + GetModuleName()).StartTable().StartTableRow().
-        TableColumn("Строка кода").EndTableRow();
+    html.StartHTMLFile().Paragraph("РЎС‚Р°С‚РёСЃС‚РёРєР° РїРѕ РјРѕРґСѓР»СЋ " + GetModuleName()).StartTable().StartTableRow().
+        TableColumn("РЎС‚СЂРѕРєР° РєРѕРґР°").EndTableRow();
 
     std::string coveragePercent = "";
-    for(int index = 0; index <= GetLinesCount1() - 1; index++)
+
+    for(unsigned int index = 0; index <= GetLinesCount1() - 1; index++)
     {
         Line currentLine = GetLine(index);
 

@@ -3,6 +3,7 @@
 #include "WindowsOS.h"
 #include <iostream>
 #include "HTMLService.h"
+#include "windows.h"
 
 Project::Project()
 {
@@ -23,8 +24,6 @@ void Project::ReadAppParams(int argc, char* argv[])
         {
             std::string value(argv[index]);
 
-            //std::cerr << "param = " << value << std::endl;
-
             if((value == "-inputDir") || (value == "-i"))
             {
                 SetInputDir(std::string(argv[index + 1]));
@@ -34,30 +33,7 @@ void Project::ReadAppParams(int argc, char* argv[])
             {
                 SetOutputDir(std::string(argv[index + 1]));
             }
-
-            if((value == "-macrosesList") || (value == "-m"))
-            {
-                SetMacrosesListFileName(std::string(argv[index + 1]));
-            }
         }
-    }
-}
-
-void Project::ReadMacrosesList()
-{
-    if(GetMacrosesListFileName() == "")
-    {
-        return;
-    }
-
-    macroses.clear();
-
-    std::ifstream file(GetMacrosesListFileName());
-
-    std::string macrosName;
-    while(std::getline(file, macrosName))
-    {
-        macroses.push_back(macrosName);
     }
 }
 
@@ -65,6 +41,7 @@ void Project::Proccess()
 {
      DIR           *d;
      struct dirent *dir;
+
      d = opendir(GetInputDir().c_str());
      if (d)
      {
@@ -75,10 +52,7 @@ void Project::Proccess()
                 continue;
             }
 
-           //std::cerr << "dir->d_name = " << GetInputDir() + "\\" + dir->d_name << std::endl;
-
             Module module;
-            module.SetMacroses(&macroses);
             module.Proccess(GetInputDir() + "\\" + dir->d_name);
             modules.push_back(module);
         }
@@ -101,18 +75,14 @@ void Project::CreateOutPutFolder()
             outputDir_ = "";
         }
         else
-        //if(currentDir == "")
-        //{
         {
             currentDir += outputDir_.substr(0, slashPosition) + "\\";
             outputDir_ = outputDir_.substr(slashPosition + 1, outputDir_.size() - slashPosition);
         }
-            //continue;
-        //}
+
         if(!os.CheckDir(currentDir))
         {
             os.CreateDir(currentDir);
-            //std::cerr << "need create dir - " << currentDir << std::endl;
         }
     }
 }
@@ -133,8 +103,8 @@ void Project::GenerateHTMLReport()
 {
     HTMLService html;
 
-    html.StartHTMLFile().Paragraph("Ñòàòèñòèêà ïî ïðîåêòó").StartTable().StartTableRow().TableColumn("Ìîäóëü").
-        TableColumn("Ñòðîê âñåãî").TableColumn("Ïîêðûòûõ òåñòàìè ñòðîê").TableColumn("%").EndTableRow();
+    html.StartHTMLFile().Paragraph("Ð¡Ñ‚Ð°Ñ‚Ð¸ÑÑ‚Ð¸ÐºÐ° Ð¿Ð¾ Ð¿Ñ€Ð¾ÐµÐºÑ‚Ñƒ").StartTable().StartTableRow().TableColumn("ÐœÐ¾Ð´ÑƒÐ»ÑŒ").
+        TableColumn("Ð¡Ñ‚Ñ€Ð¾Ðº Ð²ÑÐµÐ³Ð¾").TableColumn("ÐŸÐ¾ÐºÑ€Ñ‹Ñ‚Ñ‹Ñ… Ñ‚ÐµÑÑ‚Ð°Ð¼Ð¸ ÑÑ‚Ñ€Ð¾Ðº").TableColumn("%").EndTableRow();
 
     int linesCount = 0;
     int calledLinessCount = 0;
@@ -165,7 +135,7 @@ void Project::GenerateHTMLReport()
     }
 
     coveragePercent = CoveragePercent(calledLinessCount, linesCount);
-    html.StartTableRow().TableCell("Âñåãî").TableCell(std::to_string(linesCount)).
+    html.StartTableRow().TableCell("Ð’ÑÐµÐ³Ð¾").TableCell(std::to_string(linesCount)).
            TableCell(std::to_string(calledLinessCount)).TableCell(coveragePercent).EndTableRow();
 
     html.EndTable().EndHTMLFile();

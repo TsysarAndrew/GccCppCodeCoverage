@@ -15,3 +15,4 @@
 #endif // GLOBALUNITTEST_H_INCLUDED
 
 
+std::string GetAppDir();

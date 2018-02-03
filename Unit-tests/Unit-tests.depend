@@ -1,29 +1,30 @@
 # depslib dependency file v1.0
-1517130463 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\src\project.cpp
+1517652079 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\src\project.cpp
 	"Project.h"
 	<dirent.h>
 	"WindowsOS.h"
 	<iostream>
 	"HTMLService.h"
+	"windows.h"
 
-1517124252 c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\include\project.h
+1517509002 c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\include\project.h
 	"Global.h"
 	"Module.h"
 	<vector>
 
-1516516928 c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\include\global.h
+1517508971 c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\include\global.h
 	<string>
 
 1517063096 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\unit-tests\main.cpp
 	<iostream>
 	"GlobalUnitTest.h"
 
-1517083553 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\unit-tests\projecttests.cpp
+1517653819 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\unit-tests\projecttests.cpp
 	"GlobalUnitTest.h"
 	"Project.h"
 	"WindowsOS.h"
 
-1516475753 c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\unit-tests\globalunittest.h
+1517654042 c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\unit-tests\globalunittest.h
 	"windows.h"
 	"gtest/gtest.h"
 
@@ -189,72 +190,75 @@
 	"GlobalUnitTest.h"
 	"WindowsOS.h"
 
-1516942388 c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\include\windowsos.h
+1517509009 c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\include\windowsos.h
 	"Global.h"
 	<vector>
 	<fstream>
 
-1517080593 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\src\windowsos.cpp
+1517652189 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\src\windowsos.cpp
 	"WindowsOS.h"
 	"windows.h"
 	"dirent.h"
 	<iostream>
 	<stdio.h>
+	<io.h>
 
-1517080735 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\unit-tests\windowsostests.cpp
+1517653829 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\unit-tests\windowsostests.cpp
 	"GlobalUnitTest.h"
 	"WindowsOS.h"
 	<vector>
 	<iostream>
 	<stdio.h>
 
-1516519028 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\src\word.cpp
+1517508957 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\src\word.cpp
 	"Word.h"
 
-1516520076 c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\include\word.h
+1517509020 c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\include\word.h
 	"Global.h"
 
 1517080740 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\unit-tests\wordtests.cpp
 	"GlobalUnitTest.h"
 	"Word.h"
 
-1517151619 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\src\line.cpp
+1517652215 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\src\line.cpp
 	"Line.h"
 	"iostream"
 	<algorithm>
 
-1517151608 c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\include\line.h
+1517508987 c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\include\line.h
 	"Global.h"
 	<vector>
 	"Module.h"
 
-1517150169 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\unit-tests\linetests.cpp
+1517653763 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\unit-tests\linetests.cpp
 	"GlobalUnitTest.h"
 	"Line.h"
 
-1517130318 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\unit-tests\moduletests.cpp
+1517653686 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\unit-tests\moduletests.cpp
 	"GlobalUnitTest.h"
 	"Module.h"
 	"Line.h"
 	"WindowsOS.h"
 	<stdio.h>
 
-1517130272 c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\include\module.h
+1517508995 c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\include\module.h
 	"Global.h"
 	<vector>
 	"Line.h"
 
-1517151596 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\src\module.cpp
+1517652171 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\src\module.cpp
 	"Module.h"
 	<fstream>
 	<iostream>
 	"WindowsOS.h"
 	"HTMLService.h"
+	"windows.h"
+	<exception>
 
-1517125474 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\src\htmlservice.cpp
+1517508910 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\src\htmlservice.cpp
 	"HTMLService.h"
 
-1517125508 c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\include\htmlservice.h
+1517508979 c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\include\htmlservice.h
 	<Global.h>
 
 1517080763 source:c:\work\ООО Надежное ПО\Проект Запись видео\gcccppcodecovering\unit-tests\htmlservicetests.cpp

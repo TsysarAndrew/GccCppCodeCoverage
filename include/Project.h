@@ -12,7 +12,6 @@ class Project
         virtual ~Project();
 
         void ReadAppParams(int argc, char* argv[]);
-        void ReadMacrosesList();
         void Proccess();
 
         unsigned int GetModulesCount();
@@ -26,12 +25,10 @@ class Project
 
         GETSET(std::string, inputDir, InputDir);
         GETSET(std::string, outputDir, OutputDir);
-        GETSET(std::string, macrosesListFileName, MacrosesListFileName);
     protected:
 
     private:
         std::vector<Module> modules;
-        std::vector<std::string> macroses;
 };
 
 #endif // PROJECT_H

@@ -3,6 +3,7 @@
 #include "dirent.h"
 #include <iostream>
 #include <stdio.h>
+#include <io.h>
 
 WindowsOS::WindowsOS()
 {
@@ -43,10 +44,7 @@ void WindowsOS::DeleteDir(const std::string& dirName)
 
 bool WindowsOS::CheckFile(std::string fileName)
 {
-    //std::cerr << "CheckFile (before ifstream)" << std::endl;
-    std::ifstream f(fileName.c_str());
-    //std::cerr << "CheckFile (after ifstream)" << std::endl;
-    return f.good();
+    return access(fileName.c_str(), 0) != -1;
 }
 
 std::string WindowsOS::ShortFileName(std::string& fileName)
@@ -60,8 +58,6 @@ std::string WindowsOS::FileNameFromGcovFileName(std::string& fileName)
 {
     std::string result = fileName;
 
-    //std::cerr << "01" << result << std::endl;
-
     size_t start_pos = result.find("~");
     if(start_pos != std::string::npos)
     {
@@ -74,8 +70,6 @@ std::string WindowsOS::FileNameFromGcovFileName(std::string& fileName)
       result.replace(start_pos, 1, "\\");
       start_pos = result.find("#");
     }
-
-    //std::cerr << result << std::endl;
 
     size_t lastDot = result.find_last_of("/.");
 

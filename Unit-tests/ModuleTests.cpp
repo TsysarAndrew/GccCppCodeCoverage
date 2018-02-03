@@ -17,22 +17,12 @@ TEST(ModuleClass, Line_SetModuleTest)
     ASSERT_EQ(line.GetModule(), &module);
 }
 
-// NOTE (Андрей#1#): Дубль с методом в модуле WindowsOsTests
-std::string GetAppDir1()
-{
-    char result[MAX_PATH];
-    std::string appPath(result, GetModuleFileNameA(NULL, result, MAX_PATH));
-    size_t lastSlashFound = appPath.find_last_of("/\\");
-
-    return appPath.substr(0, lastSlashFound);
-}
-
 TEST(ModuleClass, ProccessTest)
 {
 
     WindowsOS os;
 
-    std::string subDir = GetAppDir1() + "\\SubDirModuleClass";
+    std::string subDir = GetAppDir() + "\\SubDirModuleClass";
     os.CreateDir(subDir);
 
     std::string fileName = subDir + "\\file.gcov";

@@ -51,6 +51,7 @@
 		<Unit filename="../src/Project.cpp" />
 		<Unit filename="../src/WindowsOS.cpp" />
 		<Unit filename="../src/Word.cpp" />
+		<Unit filename="GlobalUnitTest.cpp" />
 		<Unit filename="GlobalUnitTest.h" />
 		<Unit filename="HTMLServiceTests.cpp" />
 		<Unit filename="LineTests.cpp" />

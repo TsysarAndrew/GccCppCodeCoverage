@@ -19,8 +19,6 @@ class Module
         void IncAnalysisLinesCount();
         void IncCalledLinesCount();
 
-        void SetMacroses(std::vector<std::string>* macroses);
-
         void GenerateHTMLReport(std::string outputDir);
 
         GETSET(int, calledLinesCount, CalledLinesCount);
@@ -30,7 +28,6 @@ class Module
 
     private:
         std::vector<Line> lines;
-        std::vector<std::string>* macroses;
 };
 
 #endif // MODULE_H

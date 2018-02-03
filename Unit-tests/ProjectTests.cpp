@@ -4,7 +4,6 @@
 
 TEST_PROPERTY(ProjectClass, Project, InputDir, "Test input dir");
 TEST_PROPERTY(ProjectClass, Project, OutputDir, "Test output dir");
-TEST_PROPERTY(ProjectClass, Project, MacrosesListFileName, "macroses file name");
 
 TEST(ProjectClass, TestReadingAppParams)
 {
@@ -43,7 +42,6 @@ TEST(ProjectClass, TestReadingAppParams)
 
     ASSERT_EQ(project->GetInputDir(), "Test input dir");
     ASSERT_EQ(project->GetOutputDir(), "Test output dir");
-    ASSERT_EQ(project->GetMacrosesListFileName(), "macroses.txt");
 }
 
 TEST(ProjectClass, TestReadingAppParamsShortNames)
@@ -83,7 +81,6 @@ TEST(ProjectClass, TestReadingAppParamsShortNames)
 
     ASSERT_EQ(project->GetInputDir(), "Test input dir");
     ASSERT_EQ(project->GetOutputDir(), "Test output dir");
-    ASSERT_EQ(project->GetMacrosesListFileName(), "macroses.txt");
 }
 
 
@@ -101,24 +98,13 @@ TEST(ProjectClass, TestReadingAppParamsEmptyParams)
 
     ASSERT_EQ(project->GetInputDir(), "");
     ASSERT_EQ(project->GetOutputDir(), "");
-    ASSERT_EQ(project->GetMacrosesListFileName(), "");
-}
-
-// NOTE (Андрей#1#): Дубль с методом в модуле WindowsOsTests
-std::string GetAppDir2()
-{
-    char result[MAX_PATH];
-    std::string appPath(result, GetModuleFileNameA(NULL, result, MAX_PATH));
-    size_t lastSlashFound = appPath.find_last_of("/\\");
-
-    return appPath.substr(0, lastSlashFound);
 }
 
 TEST(ProjectClass, TestProccess)
 {
     WindowsOS os;
 
-    std::string subDir = GetAppDir2() + "\\SubDirProjectClass";
+    std::string subDir = GetAppDir() + "\\SubDirProjectClass";
     os.CreateDir(subDir);
 
     std::string fileName1 = subDir + "\\file.gcov";
@@ -147,24 +133,24 @@ TEST(ProjectClass, TestProccess)
 
 TEST(ProjectClass, TestCreateOutPutFolder)
 {
-    std::string subDir = GetAppDir2() + "\\SubDirProjectClassTestCreateOutPutFolder\\Sub\\Sub\\HTML";
+    std::string subDir = GetAppDir() + "\\SubDirProjectClassTestCreateOutPutFolder\\Sub\\Sub\\HTML";
 
     WindowsOS os;
     Project project;
     project.SetOutputDir(subDir);
     project.CreateOutPutFolder();
 
-    ASSERT_TRUE(os.CheckDir(GetAppDir2() + "\\SubDirProjectClassTestCreateOutPutFolder\\Sub\\Sub\\HTML"));
-    //os.DeleteDir(GetAppDir2() + "\\SubDirProjectClassTestCreateOutPutFolder\\Sub\\Sub\\HTML");
+    ASSERT_TRUE(os.CheckDir(GetAppDir() + "\\SubDirProjectClassTestCreateOutPutFolder\\Sub\\Sub\\HTML"));
+    os.DeleteDir(GetAppDir() + "\\SubDirProjectClassTestCreateOutPutFolder\\Sub\\Sub\\HTML");
 
-    ASSERT_TRUE(os.CheckDir(GetAppDir2() + "\\SubDirProjectClassTestCreateOutPutFolder\\Sub\\Sub"));
-    os.DeleteDir(GetAppDir2() + "\\SubDirProjectClassTestCreateOutPutFolder\\Sub\\Sub");
+    ASSERT_TRUE(os.CheckDir(GetAppDir() + "\\SubDirProjectClassTestCreateOutPutFolder\\Sub\\Sub"));
+    os.DeleteDir(GetAppDir() + "\\SubDirProjectClassTestCreateOutPutFolder\\Sub\\Sub");
 
-    ASSERT_TRUE(os.CheckDir(GetAppDir2() + "\\SubDirProjectClassTestCreateOutPutFolder\\Sub"));
-    os.DeleteDir(GetAppDir2() + "\\SubDirProjectClassTestCreateOutPutFolder\\Sub");
+    ASSERT_TRUE(os.CheckDir(GetAppDir() + "\\SubDirProjectClassTestCreateOutPutFolder\\Sub"));
+    os.DeleteDir(GetAppDir() + "\\SubDirProjectClassTestCreateOutPutFolder\\Sub");
 
-    ASSERT_TRUE(os.CheckDir(GetAppDir2() + "\\SubDirProjectClassTestCreateOutPutFolder"));
-    os.DeleteDir(GetAppDir2() + "\\SubDirProjectClassTestCreateOutPutFolder");
+    ASSERT_TRUE(os.CheckDir(GetAppDir() + "\\SubDirProjectClassTestCreateOutPutFolder"));
+    os.DeleteDir(GetAppDir() + "\\SubDirProjectClassTestCreateOutPutFolder");
 }
 
 

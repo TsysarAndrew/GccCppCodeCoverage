@@ -12,8 +12,6 @@ Line::Line()
     separators.push_back(")");
 
     module = NULL;
-
-    macroses = NULL;
 }
 
 Line::~Line()
@@ -29,7 +27,7 @@ void Line::Proccess(std::string &fileLine)
 
     sourceLine = fileLine;
 
-    if((fileLine == "") /*|| (fileLine.find(".") != std::string::npos)*/)
+    if(fileLine == "")
     {
         return;
     }
@@ -40,16 +38,12 @@ void Line::Proccess(std::string &fileLine)
         words.push_back(wordData);
     }
 
-
-    //std::cerr << "sourceLine = " << sourceLine << std::endl;
     SetLineWasCalled(false);
     SetLineStatus(LineStatus::ignore);
     if (words[0].word.find("#####") == std::string::npos)
     {
-        //std::cerr << "not find words[0].word.find(\"#####\")" << std::endl;
         if (words[0].word.find("-") == std::string::npos)
         {
-            //std::cerr << "not find words[0].word.find(\"-\")" << std::endl;
             SetLineWasCalled(true);
             SetLineStatus(LineStatus::called);
 
@@ -62,7 +56,6 @@ void Line::Proccess(std::string &fileLine)
     }
     else
     {
-        //std::cerr << "find words[0].word.find(\"#####\")" << std::endl;
         SetLineStatus(LineStatus::nonCalled);
         if(module != NULL)
         {
@@ -82,15 +75,10 @@ WordData Line::ReadWord(std::string &fileLine)
     bool wordWasFinded = false;
     for (std::vector<std::string>::iterator it = separators.begin(); it != separators.end(); ++it)
     {
-        //std::cerr << "___minSeparatorPosition " << minSeparatorPosition << std::endl;
-        //std::cerr << "___separatorPosition " << minSeparatorPosition << std::endl;
-
         separatorPosition = fileLine.find(*it);
         if((separatorPosition != std::string::npos) && (separatorPosition != 0))
         {
-
             wordWasFinded = true;
-
 
             if(minSeparatorPosition == 0)
             {
@@ -101,15 +89,12 @@ WordData Line::ReadWord(std::string &fileLine)
             {
                 if(separatorPosition < minSeparatorPosition)
                 {
-                    //std::cerr << "separatorPosition < minSeparatorPosition "<<separatorPosition<< "<" << minSeparatorPosition << std::endl;
                     minSeparatorPosition = separatorPosition;
                     currentSeparator = *it;
                 }
             }
         }
     }
-
-    //std::cerr << "___result__minSeparatorPosition " << minSeparatorPosition << std::endl;
 
     if(!wordWasFinded)
     {
@@ -123,11 +108,6 @@ WordData Line::ReadWord(std::string &fileLine)
         fileLine = fileLine.substr(minSeparatorPosition + result.separator.length(), fileLine.length() - minSeparatorPosition - 1);
     }
 
-//        std::cerr << "wordData.word " <<  result.word << std::endl;
-//        std::cerr << "wordData.separator " <<  result.separator << std::endl;
-//        std::cerr << "fileLine " <<  fileLine << std::endl;
-//        std::cerr << "-------------------" << std::endl;
-
     if(result.separator == "")
     {
         result.separator = result.word;
@@ -140,12 +120,6 @@ std::string Line::GetSourceLine()
 {
     return sourceLine;
 }
-
-void Line::SetMacroses(std::vector<std::string>* macroses)
-{
-    this->macroses = macroses;
-}
-
 
 std::string Line::LeftTrim(std::string value)
 {
